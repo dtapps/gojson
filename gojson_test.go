@@ -231,3 +231,10 @@ func TestIsValidJSON(t *testing.T) {
 		t.Errorf("IsValidJSON should return false for invalid JSON")
 	}
 }
+
+func BenchmarkIsValidJSON(b *testing.B) {
+	validJSON := `{"key": "value"}`
+	for i := 0; i < b.N; i++ {
+		IsValidJSON(validJSON)
+	}
+}
