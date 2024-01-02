@@ -1,5 +1,5 @@
 <h1>
-<a href="https://www.dtapp.net/">Golang Json</a>
+<a href="https://www.dtapp.net/">Golang</a>
 </h1>
 
 📦 Golang Json
@@ -13,5 +13,5 @@
 #### 安装
 
 ```shell
-go get -v -u go.dtapp.net/gojson
+go get -v -u go.dtapp.net/gojson@v1.0.3
 ```
