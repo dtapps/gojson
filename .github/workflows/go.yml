@@ -1,0 +1,29 @@
+name: Go # 工作流的名称
+on: [push, pull_request] # 触发workflow的事件
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Go environment
+        uses: actions/setup-go@v5.0.0
+        with:
+          go-version: ">=1.20"
+        id: go
+
+      - name: Check out source code
+        uses: actions/checkout@v3
+
+        # 测试代码
+      - name: Run Test
+        run: go test -v .
+
+        # https://coveralls.io/
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2.2.3
+
+        # https://app.codecov.io/
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
